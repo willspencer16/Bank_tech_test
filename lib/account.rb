@@ -4,17 +4,16 @@ class Account
     def initialize
         @balance = 0
         @history = []
+        @date = Time.new
     end
 
     def deposit(amount)
-        date = Time.new
         @balance += amount
-        @history << {:date => date.strftime("%d/%m/%Y"), :amount => amount}
+        @history << {:date => @date.strftime("%d/%m/%Y"), :amount => amount}
     end
 
     def withdraw(amount)
-        date = Time.new
         @balance -= amount
-        @history << {:date => date.strftime("%d/%m/%Y"), :amount => amount}
+        @history << {:date => @date.strftime("%d/%m/%Y"), :amount => amount}
     end
 end
