@@ -25,14 +25,14 @@ describe Account do
             it 'user makes a deposit' do
                 date = Time.new
                 subject.deposit(100)
-                expect(subject.history).to include(:date => date.strftime("%d/%m/%Y"), :amount => 100)
+                expect(subject.history).to include(:date => date.strftime("%d/%m/%Y"), :credit => 100)
             end
 
             it 'user makes a withdrawal' do
                 date = Time.new
                 subject.deposit(100)
                 subject.withdraw(50)
-                expect(subject.history).to include(:date => date.strftime("%d/%m/%Y"), :amount => 50)
+                expect(subject.history).to include(:date => date.strftime("%d/%m/%Y"), :debit => 50)
             end
         end
     end
