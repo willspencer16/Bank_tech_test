@@ -8,12 +8,19 @@ class Account
     end
 
     def deposit(amount)
-        @balance += amount
-        @history << {:date => @date.strftime("%d/%m/%Y"), :credit => amount}
+        balance = @balance += amount
+        @history << {:date => @date.strftime("%d/%m/%Y"), :credit => amount, :balance => balance}
     end
 
     def withdraw(amount)
-        @balance -= amount
-        @history << {:date => @date.strftime("%d/%m/%Y"), :debit => amount}
+        balance = @balance -= amount
+        @history << {:date => @date.strftime("%d/%m/%Y"), :debit => amount, :balance => balance}
+    end
+
+    def statement
+        puts "date || credit || debit || balance"
+        @history.each do |input|
+            puts "#{input[:date]} || || #{input[:credit]} || #{input[:balance]}"
+        end
     end
 end
