@@ -20,7 +20,7 @@ class Account
     def statement
         puts "date || credit || debit || balance"
         @history.each do |input|
-            puts "#{input[:date]} || || #{input[:credit]} || #{input[:balance]}"
+            puts "#{input[:date]} || #{input[:credit]} || #{input[:debit]} || #{input[:balance]}"
         end
     end
 end

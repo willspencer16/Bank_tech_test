@@ -41,7 +41,14 @@ describe Account do
         it 'prints date and amount credited' do
             date = Time.new
             subject.deposit(100)
-            expect { subject.statement }.to output("date || credit || debit || balance\n#{date.strftime("%d/%m/%Y")} || || 100 || 100\n").to_stdout
+            expect { subject.statement }.to output("date || credit || debit || balance\n#{date.strftime("%d/%m/%Y")} || 100 ||  || 100\n").to_stdout
+        end
+
+        it 'prints date and amount debited' do
+            date = Time.new
+            subject.deposit(100)
+            subject.withdraw(50)
+            expect { subject.statement }.to output("date || credit || debit || balance\n#{date.strftime("%d/%m/%Y")} || 100 ||  || 100\n#{date.strftime("%d/%m/%Y")} ||  || 50 || 50\n").to_stdout
         end
     end
 end
