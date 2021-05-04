@@ -1,12 +1,10 @@
 # Bank tech test
 
-Today, you'll practice doing a tech test.
+Week 10 of Makers, tech test.
 
-For most tech tests, you'll essentially have unlimited time.  This practice session is about producing the best code you can when there is a minimal time pressure.
+This practice session is about producing the best code when there is a minimal time pressure.
 
-You'll get to practice your OO design and TDD skills.
-
-You'll work alone, and you'll also review your own code so you can practice reflecting on and improving your own work.
+Oppotunity to practice OO design and TDD skills.
 
 ## Specification
 
@@ -32,6 +30,28 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 
-## Self-assessment
+### Basic User Stories
 
-Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit
+```
+As a user
+I would like to have an account
+So that I can store my money
+```
+
+```
+As a user
+I would like to be able to deposit money into my account
+So that I can increase the money stored in my account
+```
+
+```
+As a user
+I would like to be able to withdraw from my account
+So that spend my money
+```
+
+```
+As a user
+I would like to be able to see an account statement with dates
+So that I can see how much money I have and when I deposited or withdrew money
+```
