@@ -9,12 +9,12 @@ class Account
 
     def deposit(amount)
         balance = @balance += amount
-        @history << {:date => @date.strftime("%d/%m/%Y"), :credit => amount, :balance => balance}
+        @history << {:date => @date.strftime("%d/%m/%Y"), :credit => '%.2f' % (amount), :balance => '%.2f' % (balance)}
     end
 
     def withdraw(amount)
         balance = @balance -= amount
-        @history << {:date => @date.strftime("%d/%m/%Y"), :debit => amount, :balance => balance}
+        @history << {:date => @date.strftime("%d/%m/%Y"), :debit => '%.2f' % (amount), :balance => '%.2f' % (balance)}
     end
 
     def statement

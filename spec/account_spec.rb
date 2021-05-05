@@ -25,14 +25,14 @@ describe Account do
             it 'user makes a deposit' do
                 date = Time.new
                 subject.deposit(100)
-                expect(subject.history).to include(:date => date.strftime("%d/%m/%Y"), :credit => 100, :balance => 100)
+                expect(subject.history).to include(:date => date.strftime("%d/%m/%Y"), :credit => '%.2f' % (100), :balance => '%.2f' % (100))
             end
 
             it 'user makes a withdrawal' do
                 date = Time.new
                 subject.deposit(100)
                 subject.withdraw(50)
-                expect(subject.history).to include(:date => date.strftime("%d/%m/%Y"), :debit => 50, :balance => 50)
+                expect(subject.history).to include(:date => date.strftime("%d/%m/%Y"), :debit => '%.2f' % (50), :balance => '%.2f' % (50))
             end
         end
     end
@@ -41,14 +41,14 @@ describe Account do
         it 'prints date and amount credited' do
             date = Time.new
             subject.deposit(100)
-            expect { subject.statement }.to output("date || credit || debit || balance\n#{date.strftime("%d/%m/%Y")} || 100 ||  || 100\n").to_stdout
+            expect { subject.statement }.to output("date || credit || debit || balance\n#{date.strftime("%d/%m/%Y")} || 100.00 ||  || 100.00\n").to_stdout
         end
 
         it 'prints date and amount debited' do
             date = Time.new
             subject.deposit(100)
             subject.withdraw(50)
-            expect { subject.statement }.to output("date || credit || debit || balance\n#{date.strftime("%d/%m/%Y")} || 100 ||  || 100\n#{date.strftime("%d/%m/%Y")} ||  || 50 || 50\n").to_stdout
+            expect { subject.statement }.to output("date || credit || debit || balance\n#{date.strftime("%d/%m/%Y")} || 100.00 ||  || 100.00\n#{date.strftime("%d/%m/%Y")} ||  || 50.00 || 50.00\n").to_stdout
         end
     end
 end
